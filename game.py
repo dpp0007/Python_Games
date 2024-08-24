@@ -10,7 +10,7 @@ background_color=(110,110,5)
 
 class Apple:
     def __init__(self,parent_screen):
-        self.image=pygame.image.load("assets/apple (1).jpg").convert()
+        self.image=pygame.image.load("Python_Games/assets/apple (1).jpg").convert()
         self.parent_screen=parent_screen
         self.x = SIZE*3
         self.y = SIZE*3
@@ -27,7 +27,7 @@ class Snake:
     def __init__(self, parent_screen,length):
         self.length = length
         self.parent_screen=parent_screen
-        self.block=pygame.image.load("assets/block.jpg").convert()
+        self.block=pygame.image.load("Python_Games/assets/block.jpg").convert()
         self.direction="down"
         self.x=[SIZE]*length
         self.y=[SIZE]*length
@@ -102,11 +102,11 @@ class GAME:
     
 
     def play_background_music(self):
-        pygame.mixer.music.load("assets/bg_music_1 (1).mp3")
+        pygame.mixer.music.load("Python_Games/assets/bg_music_1 (1).mp3")
         pygame.mixer.music.play()
     
     def render_background(self):
-        bg=pygame.image.load("assets/background.jpg")
+        bg=pygame.image.load("Python_Games/assets/background.jpg")
         self.screen.blit(bg,(0,0))
     
     def play(self):
@@ -119,7 +119,7 @@ class GAME:
 
          #Snake colliding with apple
          if self.is_collision(self.snake.x[0],self.snake.y[0],self.apple.x,self.apple.y):
-            sound=pygame.mixer.Sound("assets/ding.mp3")
+            sound=pygame.mixer.Sound("Python_Games/assets/ding.mp3")
             pygame.mixer.Sound.play(sound)
             self.snake.increase_length()
             self.apple.move()
@@ -127,12 +127,12 @@ class GAME:
          # Snake colliding itself
          for i in range(1,self.snake.length):
             if self.is_collision(self.snake.x[0],self.snake.y[0],self.snake.x[i],self.snake.y[i]):
-                sound=pygame.mixer.Sound("assets/crash.mp3")
+                sound=pygame.mixer.Sound("Python_Games/assets/crash.mp3")
                 pygame.mixer.Sound.play(sound)
                 raise "Game Over"
         # snake colliding with the boundries of the window
          if not (0 <= self.snake.x[0] <= 1280 and 0 <= self.snake.y[0] <= 720):
-                sound=pygame.mixer.Sound("assets/crash.mp3")
+                sound=pygame.mixer.Sound("Python_Games/assets/crash.mp3")
                 pygame.mixer.Sound.play(sound)
                 raise "Hit the boundry error"
         
