@@ -2,7 +2,6 @@ import pygame
 from pygame.locals import *
 import time
 import random
-
 import pygame.surface
 
 SIZE=40
@@ -10,27 +9,29 @@ background_color=(110,110,5)
 
 class Apple:
     def __init__(self,parent_screen):
-        self.image=pygame.image.load("Python_Games/assets/apple (1).jpg").convert()
-        self.parent_screen=parent_screen
+        self.image = pygame.image.load("Python_Games/assets/apple (1).jpg").convert()
+        self.parent_screen = parent_screen
         self.x = SIZE*3
         self.y = SIZE*3
+    
     def draw(self):
         self.parent_screen.blit(self.image,(self.x,self.y))        
         pygame.display.flip()
 
+    
     def move(self):
-        self.x=random.randint(0,31)*SIZE
-        self.y=random.randint(0,17)*SIZE
+        self.x = random.randint(0,31)*SIZE
+        self.y = random.randint(0,17)*SIZE
 
 
 class Snake:
     def __init__(self, parent_screen,length):
         self.length = length
-        self.parent_screen=parent_screen
-        self.block=pygame.image.load("Python_Games/assets/block.jpg").convert()
-        self.direction="down"
-        self.x=[SIZE]*length
-        self.y=[SIZE]*length
+        self.parent_screen = parent_screen
+        self.block = pygame.image.load("Python_Games/assets/block.jpg").convert()
+        self.direction = "down"
+        self.x = [SIZE]*length
+        self.y = [SIZE]*length
     
     def increase_length(self):
         self.length += 1
