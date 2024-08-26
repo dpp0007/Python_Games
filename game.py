@@ -38,10 +38,9 @@ class Snake:
         self.x.append(-1)
         self.y.append(-1)
 
-   
+    
    
     def draw(self):
-        # self.parent_screen.fill(background_color)
         for i in range(self.length):
             self.parent_screen.blit(self.block,(self.x[i],self.y[i]))        
         pygame.display.flip()
